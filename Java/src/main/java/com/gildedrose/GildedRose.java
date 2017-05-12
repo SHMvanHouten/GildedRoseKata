@@ -26,7 +26,7 @@ class GildedRose {
                 BackstagePassesUpdater.updateItem(item);
                 break;
             case "Soulstone":
-                SoulStoneUpdater.updateItem(item);
+                ConjuredItemsUpdater.updateItem(item);
                 break;
             default:
                 Updater.updateItem(item);
