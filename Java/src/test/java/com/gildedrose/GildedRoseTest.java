@@ -47,6 +47,13 @@ public class GildedRoseTest {
     }
 
     @Test
+    public void agedBrieShouldGetAnUpdateSellIn() throws Exception {
+        Item item = new Item("Aged Brie", -5, 49);
+        updateItem(item);
+        assertThat(item.sellIn, is(-6));
+    }
+
+    @Test
     public void sulfurasShouldNeverChange() throws Exception {
 
         Item item = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
