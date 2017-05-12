@@ -1,6 +1,6 @@
 package com.gildedrose;
 
-class LegendaryUpdater extends Updater{
+abstract class LegendaryUpdater extends Updater{
 
     static void updateItem(Item item){
         //do nothing

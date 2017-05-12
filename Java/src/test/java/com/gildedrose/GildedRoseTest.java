@@ -121,9 +121,19 @@ public class GildedRoseTest {
         assertThat(item.sellIn, is(9));
     }
 
+    @Test
+    public void conjuredItemsShouldDegradeInQualityTwiceAsFast() throws Exception {
+        Item item = new Item("Soulstone", 10, 20);
+        updateItem(item);
+        assertThat(item.quality, is(18));
+    }
 
-
-
+    @Test
+    public void conjuredItemsShouldDegradeByFourAtNegativeSellIn() throws Exception {
+        Item item = new Item("Soulstone", -1, 20);
+        updateItem(item);
+        assertThat(item.quality, is(16));
+    }
 
     private void updateItem(Item item) {
         Item[] items = new Item[] {item};

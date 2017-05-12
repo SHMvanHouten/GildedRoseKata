@@ -1,7 +1,6 @@
 package com.gildedrose;
 
-
-abstract class AgedBrieUpdater extends Updater{
+abstract class ConjuredItemsUpdater extends Updater{
 
     static void updateItem(Item item){
         updateQuality(item);
@@ -9,11 +8,11 @@ abstract class AgedBrieUpdater extends Updater{
         makeItemNotExceedMaximumQuality(item);
     }
 
-    private static void updateQuality(Item item){
-        if(item.sellIn <= 0){
-            increaseQuality(item,2);
+    private static void updateQuality(Item item) {
+        if(item.sellIn<= 0) {
+            decreaseQuality(item, 4);
         } else{
-            increaseQuality(item);
+            decreaseQuality(item, 2);
         }
     }
 }
