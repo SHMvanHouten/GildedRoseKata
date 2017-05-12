@@ -17,19 +17,19 @@ class GildedRose {
 
         switch (item.name) {
             case "Sulfuras, Hand of Ragnaros":
-                LegendaryUpdater.updateItem(item);
+                new LegendaryUpdater().updateItem(item);
                 break;
             case "Aged Brie":
-                AgedBrieUpdater.updateItem(item);
+                new AgedBrieUpdater().updateItem(item);
                 break;
             case "Backstage passes to a TAFKAL80ETC concert":
-                BackstagePassesUpdater.updateItem(item);
+                new BackstagePassesUpdater().updateItem(item);
                 break;
             case "Soulstone":
-                ConjuredItemsUpdater.updateItem(item);
+                new ConjuredItemsUpdater().updateItem(item);
                 break;
             default:
-                Updater.updateItem(item);
+                new Updater().updateItem(item);
                 break;
         }
     }

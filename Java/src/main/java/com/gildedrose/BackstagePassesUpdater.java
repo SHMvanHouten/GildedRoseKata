@@ -1,14 +1,9 @@
 package com.gildedrose;
 
-abstract class BackstagePassesUpdater extends Updater{
+class BackstagePassesUpdater extends Updater{
 
-    static void updateItem(Item item){
-        updateQuality(item);
-        updateSellIn(item);
-        makeItemNotExceedMaximumQuality(item);
-    }
-
-    private static void updateQuality(Item item) {
+    @Override
+    void updateQuality(Item item) {
         if (item.sellIn <= 0) {
             item.quality = 0;
         } else if (item.sellIn <= 5) {
