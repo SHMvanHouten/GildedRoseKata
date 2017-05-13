@@ -29,7 +29,7 @@ class GildedRose {
                 return new AgedBrieUpdater().updateItem(item);
             case "Backstage passes to a TAFKAL80ETC concert":
                 return new BackstagePassesUpdater().updateItem(item);
-            case "Soulstone":
+            case "Conjured Mana Cake":
                 return new ConjuredItemsUpdater().updateItem(item);
             default:
                 return (new Updater().updateItem(item));

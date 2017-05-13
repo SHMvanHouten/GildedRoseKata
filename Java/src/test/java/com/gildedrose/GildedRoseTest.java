@@ -123,14 +123,14 @@ public class GildedRoseTest {
 
     @Test
     public void conjuredItemsShouldDegradeInQualityTwiceAsFast() throws Exception {
-        Item item = new Item("Soulstone", 10, 20);
+        Item item = new Item("Conjured Mana Cake", 10, 20);
         Item updatedItem = updateItem(item);
         assertThat(updatedItem.getQuality(), is(18));
     }
 
     @Test
     public void conjuredItemsShouldDegradeByFourAtNegativeSellIn() throws Exception {
-        Item item = new Item("Soulstone", -1, 20);
+        Item item = new Item("Conjured Mana Cake", -1, 20);
         Item updatedItem = updateItem(item);
         assertThat(updatedItem.getQuality(), is(16));
     }
