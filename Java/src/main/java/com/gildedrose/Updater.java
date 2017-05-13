@@ -9,8 +9,9 @@ class Updater {
     }
 
     void updateQuality(Item item) {
-        decreaseQuality(item);
-        if (item.sellIn < 0) {
+        if(item.sellIn <= 0){
+            decreaseQuality(item, 2);
+        } else{
             decreaseQuality(item);
         }
     }
