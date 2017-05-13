@@ -31,6 +31,7 @@ public class TexttestFixture {
             }
             System.out.println();
             app.updateInventory();
+            items = app.getItems();
         }
     }
 
