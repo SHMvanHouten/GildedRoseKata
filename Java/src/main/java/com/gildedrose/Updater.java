@@ -1,48 +1,51 @@
 package com.gildedrose;
 
+
 class Updater {
 
-    void updateItem(Item item){
-        updateQuality(item);
-        updateSellIn(item);
-        makeItemNotExceedMaximumQuality(item);
+    Item updateItem(Item item){
+        item = updateQuality(item);
+        item = updateSellIn(item);
+        item = makeItemNotExceedMaximumQuality(item);
+        return item;
     }
 
-    void updateQuality(Item item) {
-        if(item.sellIn <= 0){
-            decreaseQuality(item, 2);
+    Item updateQuality(Item item) {
+        if(item.getSellIn() <= 0){
+            return decreaseQuality(item, 2);
         } else{
-            decreaseQuality(item);
+            return decreaseQuality(item);
         }
     }
 
-    private void makeItemNotExceedMaximumQuality(Item item) {
-        if (item.quality < 0) {
-            item.quality = 0;
+    private Item makeItemNotExceedMaximumQuality(Item item) {
+        if (item.getQuality() < 0) {
+            item = item.setQuality(0);
         }
-        if (item.quality > 50) {
-            item.quality = 50;
+        if (item.getQuality() > 50) {
+            item = item.setQuality(50);
         }
+        return item;
     }
 
-    void increaseQuality(Item item) {
-        increaseQuality(item, 1);
+    Item increaseQuality(Item item) {
+        return increaseQuality(item, 1);
     }
 
-    void increaseQuality(Item item, int amount) {
-        item.quality = item.quality + amount;
+    Item increaseQuality(Item item, int amount) {
+        return item.setQuality(item.getQuality() + amount);
     }
 
-    private void decreaseQuality(Item item) {
-        item.quality = item.quality - 1;
+    private Item decreaseQuality(Item item) {
+        return decreaseQuality(item, 1);
     }
 
-    void decreaseQuality(Item item, int amount) {
-        item.quality = item.quality - amount;
+    Item decreaseQuality(Item item, int amount) {
+        return item.setQuality(item.getQuality() - amount);
     }
 
-    private void updateSellIn(Item item){
-        item.sellIn = item.sellIn - 1;
+    private Item updateSellIn(Item item){
+        return item.decreaseSellIn();
     }
 
 }

@@ -3,7 +3,7 @@ package com.gildedrose;
 class LegendaryUpdater extends Updater{
 
     @Override
-    void updateItem(Item item){
-        //do nothing
+    Item updateItem(Item item){
+        return item;
     }
 }

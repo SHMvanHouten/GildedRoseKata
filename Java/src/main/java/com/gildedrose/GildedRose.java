@@ -7,30 +7,33 @@ class GildedRose {
         this.items = items;
     }
 
+    Item[] getItems() {
+        return items;
+    }
+
     void updateInventory() {
-        for (Item item : items) {
-            updateItem(item);
+        Item[] updatedItemArray = new Item[items.length];
+        for (int i = 0; i < items.length; i++) {
+            Item item = updateItem(items[i]);
+            updatedItemArray[i] = item;
         }
+        items = updatedItemArray;
     }
 
-    private void updateItem(Item item) {
+    private Item updateItem(Item item) {
 
-        switch (item.name) {
+        switch (item.getName()) {
             case "Sulfuras, Hand of Ragnaros":
-                new LegendaryUpdater().updateItem(item);
-                break;
+                return new LegendaryUpdater().updateItem(item);
             case "Aged Brie":
-                new AgedBrieUpdater().updateItem(item);
-                break;
+                return new AgedBrieUpdater().updateItem(item);
             case "Backstage passes to a TAFKAL80ETC concert":
-                new BackstagePassesUpdater().updateItem(item);
-                break;
+                return new BackstagePassesUpdater().updateItem(item);
             case "Soulstone":
-                new ConjuredItemsUpdater().updateItem(item);
-                break;
+                return new ConjuredItemsUpdater().updateItem(item);
             default:
-                new Updater().updateItem(item);
-                break;
+                return (new Updater().updateItem(item));
         }
     }
+
 }

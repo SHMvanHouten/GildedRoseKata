@@ -3,15 +3,15 @@ package com.gildedrose;
 class BackstagePassesUpdater extends Updater{
 
     @Override
-    void updateQuality(Item item) {
-        if (item.sellIn <= 0) {
-            item.quality = 0;
-        } else if (item.sellIn <= 5) {
-            increaseQuality(item, 3);
-        } else if (item.sellIn <= 10) {
-            increaseQuality(item, 2);
+    Item updateQuality(Item item) {
+        if (item.getSellIn() <= 0) {
+            return item.setQuality(0);
+        } else if (item.getSellIn() <= 5) {
+            return increaseQuality(item, 3);
+        } else if (item.getSellIn() <= 10) {
+            return increaseQuality(item, 2);
         } else {
-            increaseQuality(item, 1);
+            return increaseQuality(item, 1);
         }
     }
 

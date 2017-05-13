@@ -3,11 +3,11 @@ package com.gildedrose;
 class ConjuredItemsUpdater extends Updater{
 
     @Override
-    void updateQuality(Item item) {
-        if(item.sellIn<= 0) {
-            decreaseQuality(item, 4);
+    Item updateQuality(Item item) {
+        if(item.getSellIn()<= 0) {
+            return decreaseQuality(item, 4);
         } else{
-            decreaseQuality(item, 2);
+            return decreaseQuality(item, 2);
         }
     }
 }
