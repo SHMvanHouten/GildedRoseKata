@@ -133,6 +133,14 @@ public class GildedRoseTest {
         Item item = new Item("Conjured Mana Cake", -1, 20);
         Item updatedItem = updateItem(item);
         assertThat(updatedItem.getQuality(), is(16));
+        assertThat(updatedItem.toString(),is("Conjured Mana Cake, -2, 16"));
+    }
+
+    @Test
+    public void qualityShouldNotDegradeBelowZero() throws Exception {
+        Item item = new Item("Conjured Mana Cake", -1, 1);
+        Item updatedItem = updateItem(item);
+        assertThat(updatedItem.getQuality(), is(0));
     }
 
     private Item updateItem(Item item) {
